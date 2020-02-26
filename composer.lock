@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b62da0100b82310df2b54501629a237a",
+    "content-hash": "7348fc928714031c1da0a61fb57c5027",
     "packages": [
+        {
+            "name": "cratia/adapter-sql-performance",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carlos-ratia/adapter-sql-performance.git",
+                "reference": "47856de47fa9d742b40b2c8c90d20bbc21b87934"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carlos-ratia/adapter-sql-performance/zipball/47856de47fa9d742b40b2c8c90d20bbc21b87934",
+                "reference": "47856de47fa9d742b40b2c8c90d20bbc21b87934",
+                "shasum": ""
+            },
+            "require": {
+                "cratia/common-fuctions": ">=0.1"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "psr-4": {
+                    "Cratia\\ORM\\DBAL\\Adapter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carlos Ratia",
+                    "email": "cratia.github@gmail.com"
+                }
+            ],
+            "time": "2020-02-26T18:42:06+00:00"
+        },
         {
             "name": "cratia/common-fuctions",
             "version": "0.2",
@@ -47,16 +85,16 @@
         },
         {
             "name": "cratia/interface-adapter",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carlos-ratia/interface-adapter.git",
-                "reference": "08d6eefb0d91684a6f99dd913100c2a8f1e1d41f"
+                "reference": "b0b6d17acaa69b2938925e3ecf4dba40dba2824a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carlos-ratia/interface-adapter/zipball/08d6eefb0d91684a6f99dd913100c2a8f1e1d41f",
-                "reference": "08d6eefb0d91684a6f99dd913100c2a8f1e1d41f",
+                "url": "https://api.github.com/repos/carlos-ratia/interface-adapter/zipball/b0b6d17acaa69b2938925e3ecf4dba40dba2824a",
+                "reference": "b0b6d17acaa69b2938925e3ecf4dba40dba2824a",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +121,7 @@
                 }
             ],
             "description": "Define abstraction para crear y ejecutar sobre instancias de Doctrine\\DBAL\\Connection",
-            "time": "2020-02-26T15:43:32+00:00"
+            "time": "2020-02-26T18:12:12+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -389,6 +427,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.1",
+        "ext-json": "*"
+    },
     "platform-dev": []
 }

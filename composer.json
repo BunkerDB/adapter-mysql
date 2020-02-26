@@ -11,8 +11,11 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "php": ">=7.1",
         "cratia/interface-adapter": ">=0.1",
-        "cratia/common-fuctions": ">=0.1"
+        "cratia/common-fuctions": ">=0.1",
+        "cratia/adapter-sql-performance": ">=0.1",
+        "ext-json": "*"
     },
     "autoload": {
         "classmap": [
