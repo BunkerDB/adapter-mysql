@@ -1,0 +1,25 @@
+{
+    "name": "cratia/adapter-mysql",
+    "description": "Implementation over abstraction IAdapter for creating and execution Doctrine\\DBAL\\Connection instances over driver Mysql",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carlos Ratia",
+            "email": "cratia.github@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "cratia/interface-adapter": ">=0.1",
+        "cratia/common-fuctions": ">=0.1"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "psr-4": {
+            "Cratia\\ORM\\DBAL\\Adapter\\": "src/"
+        }
+    }
+}
