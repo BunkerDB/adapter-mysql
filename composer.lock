@@ -4,24 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7348fc928714031c1da0a61fb57c5027",
+    "content-hash": "d2566f76d295fc98ed4876cf579c6d5f",
     "packages": [
         {
             "name": "cratia/adapter-sql-performance",
-            "version": "0.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carlos-ratia/adapter-sql-performance.git",
-                "reference": "47856de47fa9d742b40b2c8c90d20bbc21b87934"
+                "reference": "fdb436b28bb16c0d1a7d10aeaa21548f3d252a75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carlos-ratia/adapter-sql-performance/zipball/47856de47fa9d742b40b2c8c90d20bbc21b87934",
-                "reference": "47856de47fa9d742b40b2c8c90d20bbc21b87934",
+                "url": "https://api.github.com/repos/carlos-ratia/adapter-sql-performance/zipball/fdb436b28bb16c0d1a7d10aeaa21548f3d252a75",
+                "reference": "fdb436b28bb16c0d1a7d10aeaa21548f3d252a75",
                 "shasum": ""
             },
             "require": {
-                "cratia/common-fuctions": ">=0.1"
+                "cratia/common-functions": ">=0.1",
+                "ext-json": "*",
+                "php": ">=7.1"
             },
             "type": "library",
             "autoload": {
@@ -42,20 +44,20 @@
                     "email": "cratia.github@gmail.com"
                 }
             ],
-            "time": "2020-02-26T18:42:06+00:00"
+            "time": "2020-02-26T19:48:11+00:00"
         },
         {
-            "name": "cratia/common-fuctions",
-            "version": "0.2",
+            "name": "cratia/common-functions",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/carlos-ratia/common-fuctions.git",
-                "reference": "d18bb9d9e308ccdc70d6236c59b22d82dbcc5fab"
+                "url": "https://github.com/carlos-ratia/common-functions.git",
+                "reference": "9c1e58836721db08e33d2eaa3f7a0a0bd1b95c67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carlos-ratia/common-fuctions/zipball/d18bb9d9e308ccdc70d6236c59b22d82dbcc5fab",
-                "reference": "d18bb9d9e308ccdc70d6236c59b22d82dbcc5fab",
+                "url": "https://api.github.com/repos/carlos-ratia/common-functions/zipball/9c1e58836721db08e33d2eaa3f7a0a0bd1b95c67",
+                "reference": "9c1e58836721db08e33d2eaa3f7a0a0bd1b95c67",
                 "shasum": ""
             },
             "require-dev": {
@@ -80,8 +82,8 @@
                     "email": "cratia.github@gmail.com"
                 }
             ],
-            "description": "Functions Common",
-            "time": "2020-02-26T17:52:04+00:00"
+            "description": "Common Functions",
+            "time": "2020-02-26T19:34:39+00:00"
         },
         {
             "name": "cratia/interface-adapter",

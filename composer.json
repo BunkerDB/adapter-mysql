@@ -13,9 +13,9 @@
     "require": {
         "php": ">=7.1",
         "cratia/interface-adapter": ">=0.1",
-        "cratia/common-fuctions": ">=0.1",
         "cratia/adapter-sql-performance": ">=0.1",
-        "ext-json": "*"
+        "ext-json": "*",
+        "cratia/common-functions": ">=0.1"
     },
     "autoload": {
         "classmap": [
