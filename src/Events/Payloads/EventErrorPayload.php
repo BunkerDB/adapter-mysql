@@ -6,12 +6,13 @@ namespace Cratia\ORM\DBAL\Adapter\Events\Payloads;
 
 
 use Doctrine\DBAL\DBALException;
+use JsonSerializable;
 
 /**
  * Class EventErrorPayload
  * @package Cratia\ORM\DBAL\Adapter\Events\Payloads
  */
-class EventErrorPayload extends EventPayload
+class EventErrorPayload extends EventPayload implements JsonSerializable
 {
     /**
      * @var DBALException
@@ -44,11 +45,7 @@ class EventErrorPayload extends EventPayload
      */
     public function jsonSerialize()
     {
-        return array_merge(
-            parent::jsonSerialize(),
-            [
-                'error' => $this->getException(),
-            ]
+        return array_merge(parent::jsonSerialize(), ['exception' => $this->getException()]
         );
     }
 }

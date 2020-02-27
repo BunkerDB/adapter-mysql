@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Cratia\ORM\DBAL\Adapter\Events\Payloads;
 
 
+use JsonSerializable;
+
 /**
  * Class EventBeforePayload
  * @package Cratia\ORM\DBAL\Adapter\Events\Payloads
  */
-class EventBeforePayload extends EventPayload
+class EventBeforePayload extends EventPayload implements JsonSerializable
 {
     /**
      * EventQueryAfter constructor.
