@@ -271,6 +271,7 @@ class MysqlAdapter implements IAdapter
         $performance = new stdClass;
         $performance->sql = Functions::formatSql($sentence, $params);
         $performance->run_time = $_performance->getRuntime();
+        $performance->prettyRunTime = $_performance->getPrettyRunTime();
         $performance->memmory = $_performance->getMemory();
         $this->logInfo(json_encode($performance));
     }
