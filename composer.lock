@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2566f76d295fc98ed4876cf579c6d5f",
+    "content-hash": "8902d667db16a8704d3d40763b74b8ed",
     "packages": [
         {
             "name": "cratia/adapter-sql-performance",
@@ -127,6 +127,46 @@
             ],
             "description": "Define abstraction para crear y ejecutar sobre instancias de Doctrine\\DBAL\\Connection",
             "time": "2020-02-26T18:12:12+00:00"
+        },
+        {
+            "name": "cratia/pipeline",
+            "version": "0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carlos-ratia/pipeline.git",
+                "reference": "854936f2b0a14496f392de2b2806178b76b95e28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carlos-ratia/pipeline/zipball/854936f2b0a14496f392de2b2806178b76b95e28",
+                "reference": "854936f2b0a14496f392de2b2806178b76b95e28",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carlos Ratia",
+                    "email": "cratia.github@gmail.com"
+                }
+            ],
+            "description": "A plug and play pipeline pattern implementations.",
+            "homepage": "https://github.com/carlos-ratia/pipeline",
+            "time": "2020-02-13T19:53:42+00:00"
         },
         {
             "name": "doctrine/cache",

@@ -6,10 +6,10 @@ namespace Cratia\ORM\DBAL\Adapter\Events\Payloads;
 
 
 /**
- * Class EventBefore
+ * Class EventBeforePayload
  * @package Cratia\ORM\DBAL\Adapter\Events\Payloads
  */
-class EventBeforeEventPayload extends EventPayload
+class EventBeforePayload extends EventPayload
 {
     /**
      * EventQueryAfter constructor.

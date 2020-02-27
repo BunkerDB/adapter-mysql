@@ -8,10 +8,11 @@ namespace Cratia\ORM\DBAL\Adapter;
 use Cratia\Common\Functions;
 use Cratia\ORM\DBAL\Adapter\Events\Events;
 use Cratia\ORM\DBAL\Adapter\Events\Payloads\EventErrorPayload;
-use Cratia\ORM\DBAL\Adapter\Events\Payloads\EventAfterEventPayload;
-use Cratia\ORM\DBAL\Adapter\Events\Payloads\EventBeforeEventPayload;
+use Cratia\ORM\DBAL\Adapter\Events\Payloads\EventAfterPayload;
+use Cratia\ORM\DBAL\Adapter\Events\Payloads\EventBeforePayload;
 use Cratia\ORM\DBAL\Adapter\Interfaces\IAdapter;
 use Cratia\ORM\DBAL\Adapter\Interfaces\ISqlPerformance;
+use Cratia\Pipeline;
 use Doctrine\Common\EventArgs;
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Connection;
@@ -112,34 +113,68 @@ class MysqlAdapter implements IAdapter
     public function query(string $sentence, array $params = [], array $types = []): array
     {
         $sentence = trim($sentence);
+        return Pipeline::try(
+            function () {
+            })
+            ->tap(function () use ($sentence, $params, $types) {
+                $this->notify(
+                    Events::ON_BEFORE_QUERY,
+                    new EventBeforePayload($sentence, $params, $types)
+                );
+            })
+            ->then(function () use ($sentence, $params, $types) {
+                $time = -microtime(true);
+                $result = $this->_query($sentence, $params, $types);
+                $time += microtime(true);
+                return [$result, $time];
+            })
+            ->tap(function (array $response) use ($sentence, $params, $types) {
+                list($result, $time) = $response;
+                $this->notify(
+                    Events::ON_AFTER_QUERY,
+                    new EventAfterPayload($sentence, $params, $types, $result, $this->calculatePerformance($time))
+                );
+            })
+            ->tap(function (array $response) use ($sentence, $params) {
+                list($_, $time) = $response;
+                $this->logPerformance($sentence, $params, $time);
+            })
+            ->then(function (array $response) {
+                list($result, $_) = $response;
+                return $result;
+            })
+            ->catch(function (DBALException $e) {
+                throw $e;
+            })
+            ->tapCatch(function (DBALException $e) use ($sentence, $params, $types) {
+                $this->notify(
+                    Events::ON_ERROR,
+                    new EventErrorPayload($sentence, $params, $types, $e)
+                );
+            })
+            ->tapCatch(function (DBALException $e) use ($sentence, $params, $types) {
+                $this->logError(__METHOD__, $e);
+            })
+        ();
+    }
 
-        $this->notify(
-            Events::ON_BEFORE_QUERY,
-            new EventBeforeEventPayload($sentence, $params, $types)
-        );
-
+    /**
+     * @param string $sentence
+     * @param array $params
+     * @param array $types
+     * @return array
+     * @throws DBALException
+     */
+    public function _query(string $sentence, array $params = [], array $types = []): array
+    {
         try {
-            $time = -microtime(true);
-
             $result = $this
                 ->getConnection()
                 ->executeQuery($sentence, $params, $types)
                 ->fetchAll(FetchMode::ASSOCIATIVE);
-
-            $time += microtime(true);
-            $this->logPerformance($sentence, $params, $time);
         } catch (Exception $_e) {
-            $e = new DBALException($_e->getMessage(), $_e->getCode(), $_e->getPrevious());
-            $this->logError(__METHOD__, $e);
-            $this->notify(Events::ON_ERROR, new EventErrorPayload($sentence, $params, $types, $e));
-            throw $e;
+            throw new DBALException($_e->getMessage(), $_e->getCode(), $_e->getPrevious());
         }
-
-        $this->notify(
-            Events::ON_AFTER_QUERY,
-            new EventAfterEventPayload($sentence, $params, $types, $result, $this->calculatePerformance($time))
-        );
-
         return $result;
     }
 
@@ -153,31 +188,67 @@ class MysqlAdapter implements IAdapter
     public function nonQuery(string $sentence, array $params = [], array $types = []): int
     {
         $sentence = trim($sentence);
+        return Pipeline::try(
+            function () {
+            })
+            ->tap(function () use ($sentence, $params, $types) {
+                $this->notify(
+                    Events::ON_BEFORE_NON_QUERY,
+                    new EventBeforePayload($sentence, $params, $types)
+                );
+            })
+            ->then(function () use ($sentence, $params, $types) {
+                $time = -microtime(true);
+                $affectedRows = $this->_nonQuery($sentence, $params, $types);
+                $time += microtime(true);
+                return [$affectedRows, $time];
+            })
+            ->tap(function (array $response) use ($sentence, $params, $types) {
+                list($affectedRows, $time) = $response;
+                $this->notify(
+                    Events::ON_AFTER_NON_QUERY,
+                    new EventAfterPayload($sentence, $params, $types, ['affectedRows' => $affectedRows], $this->calculatePerformance($time))
+                );
+            })
+            ->tap(function (array $response) use ($sentence, $params) {
+                list($_, $time) = $response;
+                $this->logPerformance($sentence, $params, $time);
+            })
+            ->then(function (array $response) {
+                list($affectedRows, $_) = $response;
+                return $affectedRows;
+            })
+            ->catch(function (DBALException $e) {
+                throw $e;
+            })
+            ->tapCatch(function (DBALException $e) use ($sentence, $params, $types) {
+                $this->notify(
+                    Events::ON_ERROR,
+                    new EventErrorPayload($sentence, $params, $types, $e)
+                );
+            })
+            ->tapCatch(function (DBALException $e) use ($sentence, $params, $types) {
+                $this->logError(__METHOD__, $e);
+            })
+        ();
+    }
 
-        $this->notify(
-            Events::ON_BEFORE_NON_QUERY,
-            new EventBeforeEventPayload($sentence, $params, $types)
-        );
-
+    /**
+     * @param string $sentence
+     * @param array $params
+     * @param array $types
+     * @return int
+     * @throws DBALException
+     */
+    public function _nonQuery(string $sentence, array $params = [], array $types = []): int
+    {
         try {
-            $time = -microtime(true);
-
-            $affectedRows = $this->getConnection()->executeUpdate($sentence, $params, $types);
-
-            $time += microtime(true);
-            $this->logPerformance($sentence, $params, $time);
+            $affectedRows = $this
+                ->getConnection()
+                ->executeUpdate($sentence, $params, $types);
         } catch (Exception $_e) {
-            $e = new DBALException($_e->getMessage(), $_e->getCode(), $_e->getPrevious());
-            $this->logError(__METHOD__, $e);
-            $this->notify(Events::ON_ERROR, new EventErrorPayload($sentence, $params, $types, $e));
-            throw $e;
+            throw new DBALException($_e->getMessage(), $_e->getCode(), $_e->getPrevious());
         }
-
-        $this->notify(
-            Events::ON_AFTER_NON_QUERY,
-            new EventAfterEventPayload($sentence, $params, $types, ['affectedRows' => $affectedRows], $this->calculatePerformance($time))
-        );
-
         return $affectedRows;
     }
 

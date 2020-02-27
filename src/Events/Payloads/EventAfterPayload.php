@@ -9,10 +9,10 @@ use Cratia\ORM\DBAL\Adapter\Interfaces\ISqlPerformance;
 use JsonSerializable;
 
 /**
- * Class EventAfter
+ * Class EventAfterPayload
  * @package Cratia\ORM\DBAL\Adapter\Events\Payloads
  */
-class EventAfterEventPayload extends EventPayload implements JsonSerializable
+class EventAfterPayload extends EventPayload implements JsonSerializable
 {
     /**
      * @var ISqlPerformance

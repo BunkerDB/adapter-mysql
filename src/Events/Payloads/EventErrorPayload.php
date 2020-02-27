@@ -8,7 +8,7 @@ namespace Cratia\ORM\DBAL\Adapter\Events\Payloads;
 use Doctrine\DBAL\DBALException;
 
 /**
- * Class ErrorPayload
+ * Class EventErrorPayload
  * @package Cratia\ORM\DBAL\Adapter\Events\Payloads
  */
 class EventErrorPayload extends EventPayload

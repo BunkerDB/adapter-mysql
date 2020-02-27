@@ -9,7 +9,7 @@ use Doctrine\Common\EventArgs;
 use JsonSerializable;
 
 /**
- * Class Payload
+ * Class EventPayload
  * @package Cratia\ORM\DBAL\Adapter\Events\Payloads
  */
 class EventPayload extends EventArgs implements JsonSerializable
