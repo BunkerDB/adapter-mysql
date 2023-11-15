@@ -1,6 +1,6 @@
 {
     "name": "bunkerdb/adapter-mysql",
-    "description": "Implementation over abstraction IAdapter for creating and execution Doctrine\\DBAL\\Connection instances over driver Mysql",
+    "description": "Implementation  over abstraction IAdapter for creating and execution Doctrine\\DBAL\\Connection instances over driver Mysql",
     "type": "library",
     "license": "MIT",
     "authors": [
