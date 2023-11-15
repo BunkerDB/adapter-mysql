@@ -12,7 +12,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/bunkerdb/adapter-mysql"
+            "url": "https://github.com/BunkerDB/adapter-mysql"
         }
     ],
     "minimum-stability": "stable",
