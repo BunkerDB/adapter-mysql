@@ -1,8 +1,14 @@
 {
-    "name": "cratia/adapter-mysql",
+    "name": "bunkerdb/adapter-mysql",
     "description": "Implementation over abstraction IAdapter for creating and execution Doctrine\\DBAL\\Connection instances over driver Mysql",
     "type": "library",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bunkerdb/adapter-sql-performance"
+        }
+    ],
     "authors": [
         {
             "name": "Carlos Ratia",
@@ -13,7 +19,7 @@
     "require": {
         "php": ">=7.1",
         "cratia/interface-adapter": ">=0.1",
-        "cratia/adapter-sql-performance": ">=0.1",
+        "bunkerdb/adapter-sql-performance": "dev-master",
         "ext-json": "*",
         "cratia/common-functions": ">=0.1",
         "cratia/pipeline": ">=0.7"
