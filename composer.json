@@ -7,6 +7,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/bunkerdb/adapter-sql-performance"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bunkerdb/interface-adapter"
         }
     ],
     "authors": [
@@ -18,7 +22,7 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.1",
-        "cratia/interface-adapter": ">=0.1",
+        "bunkerdb/interface-adapter": "dev-master",
         "bunkerdb/adapter-sql-performance": "dev-master",
         "ext-json": "*",
         "cratia/common-functions": ">=0.1",
