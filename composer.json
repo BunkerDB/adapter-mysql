@@ -19,7 +19,6 @@
             "email": "cratia.github@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "php": ">=7.1",
         "bunkerdb/interface-adapter": "dev-master",

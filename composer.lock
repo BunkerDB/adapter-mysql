@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f5ffa12224112efdcbc47173c49a296",
+    "content-hash": "064788f007db779f378c1352b16b279b",
     "packages": [
         {
             "name": "bunkerdb/adapter-sql-performance",
@@ -63,12 +63,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BunkerDB/interface-adapter.git",
-                "reference": "64a854d76c71cfcdebc4ee47afe0a708d85221f6"
+                "reference": "47bb86885c4e7738eec9d8e9aa2e1965cc1083be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BunkerDB/interface-adapter/zipball/64a854d76c71cfcdebc4ee47afe0a708d85221f6",
-                "reference": "64a854d76c71cfcdebc4ee47afe0a708d85221f6",
+                "url": "https://api.github.com/repos/BunkerDB/interface-adapter/zipball/47bb86885c4e7738eec9d8e9aa2e1965cc1083be",
+                "reference": "47bb86885c4e7738eec9d8e9aa2e1965cc1083be",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +99,7 @@
             "support": {
                 "source": "https://github.com/BunkerDB/interface-adapter/tree/master"
             },
-            "time": "2024-05-24T22:23:17+00:00"
+            "time": "2024-05-24T22:52:10+00:00"
         },
         {
             "name": "cratia/common-functions",
