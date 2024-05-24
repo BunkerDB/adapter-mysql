@@ -67,7 +67,7 @@ class EventPayload extends EventArgs implements JsonSerializable
     /**
      * @inheritDoc
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return
             [
