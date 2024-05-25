@@ -16,9 +16,7 @@ use Cratia\Pipeline;
 use Doctrine\Common\EventArgs;
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\DriverManager;
-use Doctrine\DBAL\FetchMode;
 use Exception;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
@@ -50,7 +48,7 @@ class MysqlAdapter implements IAdapter
      * @param array $params
      * @param LoggerInterface|null $logger
      * @param EventManager|null $eventManager
-     * @throws DBALException
+     * @throws \Doctrine\DBAL\Exception
      */
     public function __construct(array $params, ?LoggerInterface $logger = null, ?EventManager $eventManager = null)
     {
@@ -108,7 +106,7 @@ class MysqlAdapter implements IAdapter
      * @param array $params
      * @param array $types
      * @return mixed[]
-     * @throws DBALException
+     * @throws \Doctrine\DBAL\Exception
      */
     public function query(string $sentence, array $params = [], array $types = []): array
     {
@@ -143,16 +141,16 @@ class MysqlAdapter implements IAdapter
                 list($result, $_) = $response;
                 return $result;
             })
-            ->catch(function (DBALException $e) {
+            ->catch(function (\Doctrine\DBAL\Exception $e) {
                 throw $e;
             })
-            ->tapCatch(function (DBALException $e) use ($sentence, $params, $types) {
+            ->tapCatch(function (\Doctrine\DBAL\Exception $e) use ($sentence, $params, $types) {
                 $this->notify(
                     Events::ON_ERROR,
                     new EventErrorPayload($sentence, $params, $types, $e)
                 );
             })
-            ->tapCatch(function (DBALException $e) use ($sentence, $params, $types) {
+            ->tapCatch(function (Exception $e) use ($sentence, $params, $types) {
                 $this->logError(__METHOD__, $e);
             })
         ();

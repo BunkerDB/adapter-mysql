@@ -25,7 +25,8 @@
         "bunkerdb/adapter-sql-performance": "1.0.*",
         "ext-json": "*",
         "cratia/common-functions": ">=0.1",
-        "cratia/pipeline": ">=0.7"
+        "cratia/pipeline": ">=0.7",
+        "doctrine/common": "^3.4"
     },
     "autoload": {
         "classmap": [
