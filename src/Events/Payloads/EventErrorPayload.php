@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Cratia\ORM\DBAL\Adapter\Events\Payloads;
 
 
-use Doctrine\DBAL\DBALException;
+use Exception as DBALException;
 use JsonSerializable;
 
 /**

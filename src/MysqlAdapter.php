@@ -17,6 +17,7 @@ use Doctrine\Common\EventArgs;
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
+use Exception as DBALException;
 use Exception;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
@@ -161,7 +162,8 @@ class MysqlAdapter implements IAdapter
      * @param array $params
      * @param array $types
      * @return array
-     * @throws DBALException
+     * @throws \Doctrine\DBAL\Exception
+     * @throws Exception
      */
     public function _query(string $sentence, array $params = [], array $types = []): array
     {
@@ -169,9 +171,9 @@ class MysqlAdapter implements IAdapter
             $result = $this
                 ->getConnection()
                 ->executeQuery($sentence, $params, $types)
-                ->fetchAll(FetchMode::ASSOCIATIVE);
+                ->fetchAssociative();
         } catch (Exception $_e) {
-            throw new DBALException($_e->getMessage(), $_e->getCode(), $_e->getPrevious());
+            throw new Exception($_e->getMessage(), $_e->getCode(), $_e->getPrevious());
         }
         return $result;
     }
