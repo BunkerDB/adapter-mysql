@@ -8,21 +8,21 @@
     "packages": [
         {
             "name": "bunkerdb/adapter-sql-performance",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BunkerDB/adapter-sql-performance.git",
-                "reference": "f955c308b2da62c01a37c68ce762282d6a2559d6"
+                "reference": "1093bf59aba4cdc88227614b1c490e11532e184f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BunkerDB/adapter-sql-performance/zipball/f955c308b2da62c01a37c68ce762282d6a2559d6",
-                "reference": "f955c308b2da62c01a37c68ce762282d6a2559d6",
+                "url": "https://api.github.com/repos/BunkerDB/adapter-sql-performance/zipball/1093bf59aba4cdc88227614b1c490e11532e184f",
+                "reference": "1093bf59aba4cdc88227614b1c490e11532e184f",
                 "shasum": ""
             },
             "require": {
-                "cratia/common-functions": ">=0.1",
                 "ext-json": "*",
+                "facuigua/common-functions": "1.0.*",
                 "php": ">=8.3"
             },
             "require-dev": {
@@ -52,9 +52,9 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/BunkerDB/adapter-sql-performance/tree/1.0.1"
+                "source": "https://github.com/BunkerDB/adapter-sql-performance/tree/1.0.2"
             },
-            "time": "2024-05-25T02:32:07+00:00"
+            "time": "2024-05-25T16:21:23+00:00"
         },
         {
             "name": "bunkerdb/interface-adapter",
@@ -100,49 +100,6 @@
                 "source": "https://github.com/BunkerDB/interface-adapter/tree/1.0.2"
             },
             "time": "2024-05-25T03:56:38+00:00"
-        },
-        {
-            "name": "cratia/common-functions",
-            "version": "0.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/carlos-ratia/common-functions.git",
-                "reference": "9c1e58836721db08e33d2eaa3f7a0a0bd1b95c67"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/carlos-ratia/common-functions/zipball/9c1e58836721db08e33d2eaa3f7a0a0bd1b95c67",
-                "reference": "9c1e58836721db08e33d2eaa3f7a0a0bd1b95c67",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Cratia\\Common\\": "src/"
-                },
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Carlos Ratia",
-                    "email": "cratia.github@gmail.com"
-                }
-            ],
-            "description": "Common Functions",
-            "support": {
-                "issues": "https://github.com/carlos-ratia/common-functions/issues",
-                "source": "https://github.com/carlos-ratia/common-functions/tree/master"
-            },
-            "time": "2020-02-26T19:34:39+00:00"
         },
         {
             "name": "cratia/pipeline",
