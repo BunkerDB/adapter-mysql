@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc1e3deeb030adf65fffaeb320c90c47",
+    "content-hash": "751ae9dba41ffc48727e023b0f3e83be",
     "packages": [
         {
             "name": "bunkerdb/adapter-sql-performance",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BunkerDB/adapter-sql-performance.git",
-                "reference": "4a67384a47f60dca4762b5769356c4b819e3a0d3"
+                "reference": "e50de658c97059f8a62364e9305533452abc1f18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BunkerDB/adapter-sql-performance/zipball/4a67384a47f60dca4762b5769356c4b819e3a0d3",
-                "reference": "4a67384a47f60dca4762b5769356c4b819e3a0d3",
+                "url": "https://api.github.com/repos/BunkerDB/adapter-sql-performance/zipball/e50de658c97059f8a62364e9305533452abc1f18",
+                "reference": "e50de658c97059f8a62364e9305533452abc1f18",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -53,22 +52,22 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/BunkerDB/adapter-sql-performance/tree/master"
+                "source": "https://github.com/BunkerDB/adapter-sql-performance/tree/1.0.0"
             },
-            "time": "2024-05-24T23:11:06+00:00"
+            "time": "2024-05-24T23:34:36+00:00"
         },
         {
             "name": "bunkerdb/interface-adapter",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BunkerDB/interface-adapter.git",
-                "reference": "47bb86885c4e7738eec9d8e9aa2e1965cc1083be"
+                "reference": "3146b8b0125a1188f8c8c814c17ee5f81a2db0f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BunkerDB/interface-adapter/zipball/47bb86885c4e7738eec9d8e9aa2e1965cc1083be",
-                "reference": "47bb86885c4e7738eec9d8e9aa2e1965cc1083be",
+                "url": "https://api.github.com/repos/BunkerDB/interface-adapter/zipball/3146b8b0125a1188f8c8c814c17ee5f81a2db0f5",
+                "reference": "3146b8b0125a1188f8c8c814c17ee5f81a2db0f5",
                 "shasum": ""
             },
             "require": {
@@ -76,7 +75,6 @@
                 "php": ">=8.3",
                 "psr/log": "^3.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -97,13 +95,13 @@
             ],
             "description": "Define abstraction para crear y ejecutar sobre instancias de Doctrine\\DBAL\\Connection",
             "support": {
-                "source": "https://github.com/BunkerDB/interface-adapter/tree/master"
+                "source": "https://github.com/BunkerDB/interface-adapter/tree/1.0.0"
             },
-            "time": "2024-05-24T22:52:10+00:00"
+            "time": "2024-05-24T23:34:49+00:00"
         },
         {
             "name": "cratia/common-functions",
-            "version": "dev-master",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carlos-ratia/common-functions.git",
@@ -118,7 +116,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -141,13 +138,13 @@
             "description": "Common Functions",
             "support": {
                 "issues": "https://github.com/carlos-ratia/common-functions/issues",
-                "source": "https://github.com/carlos-ratia/common-functions/tree/0.2.1"
+                "source": "https://github.com/carlos-ratia/common-functions/tree/master"
             },
             "time": "2020-02-26T19:34:39+00:00"
         },
         {
             "name": "cratia/pipeline",
-            "version": "dev-master",
+            "version": "0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/carlos-ratia/pipeline.git",
@@ -165,7 +162,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^9.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -192,16 +188,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "4.1.x-dev",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "f293a9b72ba72dd508daf4d3799cc066ce843f46"
+                "reference": "61d79c6e379a39dc1fea6b4e50a23dfc3cd2076a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f293a9b72ba72dd508daf4d3799cc066ce843f46",
-                "reference": "f293a9b72ba72dd508daf4d3799cc066ce843f46",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/61d79c6e379a39dc1fea6b4e50a23dfc3cd2076a",
+                "reference": "61d79c6e379a39dc1fea6b4e50a23dfc3cd2076a",
                 "shasum": ""
             },
             "require": {
@@ -214,16 +210,16 @@
                 "doctrine/coding-standard": "12.0.0",
                 "fig/log-test": "^1",
                 "jetbrains/phpstorm-stubs": "2023.2",
-                "phpstan/phpstan": "1.11.1",
-                "phpstan/phpstan-phpunit": "1.4.0",
-                "phpstan/phpstan-strict-rules": "^1.6",
-                "phpunit/phpunit": "10.5.20",
-                "psalm/plugin-phpunit": "0.19.0",
+                "phpstan/phpstan": "1.10.58",
+                "phpstan/phpstan-phpunit": "1.3.15",
+                "phpstan/phpstan-strict-rules": "^1.5",
+                "phpunit/phpunit": "10.5.9",
+                "psalm/plugin-phpunit": "0.18.4",
                 "slevomat/coding-standard": "8.13.1",
-                "squizlabs/php_codesniffer": "3.9.2",
+                "squizlabs/php_codesniffer": "3.9.0",
                 "symfony/cache": "^6.3.8|^7.0",
                 "symfony/console": "^5.4|^6.3|^7.0",
-                "vimeo/psalm": "5.24.0"
+                "vimeo/psalm": "5.21.1"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -280,7 +276,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/4.1.x"
+                "source": "https://github.com/doctrine/dbal/tree/4.0.2"
             },
             "funding": [
                 {
@@ -296,11 +292,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-16T12:46:00+00:00"
+            "time": "2024-04-25T08:29:52+00:00"
         },
         {
             "name": "doctrine/deprecations",
-            "version": "1.1.x-dev",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
@@ -327,7 +323,6 @@
             "suggest": {
                 "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -348,29 +343,25 @@
         },
         {
             "name": "psr/cache",
-            "version": "dev-master",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/cache.git",
-                "reference": "0a7c67d0d1c8167b342eb74339d6f961663826ce"
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/cache/zipball/0a7c67d0d1c8167b342eb74339d6f961663826ce",
-                "reference": "0a7c67d0d1c8167b342eb74339d6f961663826ce",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.0.0"
             },
-            "suggest": {
-                "fig/cache-util": "Provides some useful PSR-6 utilities"
-            },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -395,13 +386,13 @@
                 "psr-6"
             ],
             "support": {
-                "source": "https://github.com/php-fig/cache/tree/master"
+                "source": "https://github.com/php-fig/cache/tree/3.0.0"
             },
-            "time": "2021-02-24T03:25:37+00:00"
+            "time": "2021-02-03T23:26:27+00:00"
         },
         {
             "name": "psr/log",
-            "version": "dev-master",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
@@ -416,7 +407,6 @@
             "require": {
                 "php": ">=8.0.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -453,15 +443,12 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "bunkerdb/interface-adapter": 20,
-        "bunkerdb/adapter-sql-performance": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1",
+        "php": ">=8.3",
         "ext-json": "*"
     },
     "platform-dev": [],
