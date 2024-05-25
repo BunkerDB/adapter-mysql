@@ -17,6 +17,7 @@ use Doctrine\Common\EventArgs;
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
+use Exception as DBALException;
 use Exception;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
@@ -182,7 +183,7 @@ class MysqlAdapter implements IAdapter
      * @param array $params
      * @param array $types
      * @return int
-     * @throws Exception
+     * @throws DBALException
      */
     public function nonQuery(string $sentence, array $params = [], array $types = []): int
     {
@@ -217,16 +218,16 @@ class MysqlAdapter implements IAdapter
                 list($affectedRows, $_) = $response;
                 return $affectedRows;
             })
-            ->catch(function (Exception $e) {
+            ->catch(function (DBALException $e) {
                 throw $e;
             })
-            ->tapCatch(function (Exception $e) use ($sentence, $params, $types) {
+            ->tapCatch(function (DBALException $e) use ($sentence, $params, $types) {
                 $this->notify(
                     Events::ON_ERROR,
                     new EventErrorPayload($sentence, $params, $types, $e)
                 );
             })
-            ->tapCatch(function (Exception $e) use ($sentence, $params, $types) {
+            ->tapCatch(function (DBALException $e) use ($sentence, $params, $types) {
                 $this->logError(__METHOD__, $e);
             })
         ();
@@ -237,8 +238,7 @@ class MysqlAdapter implements IAdapter
      * @param array $params
      * @param array $types
      * @return int
-     * @throws \Doctrine\DBAL\Exception
-     * @throws Exception
+     * @throws DBALException|\Doctrine\DBAL\Exception
      */
     public function _nonQuery(string $sentence, array $params = [], array $types = []): int
     {
@@ -247,13 +247,14 @@ class MysqlAdapter implements IAdapter
                 ->getConnection()
                 ->executeStatement($sentence, $params, $types);
         } catch (Exception $_e) {
-            throw new Exception($_e->getMessage(), $_e->getCode(), $_e->getPrevious());
+            throw new DBALException($_e->getMessage(), $_e->getCode(), $_e->getPrevious());
         }
         return $affectedRows;
     }
 
     /**
      * @return string
+     * @throws \Doctrine\DBAL\Exception
      */
     public function lastInsertId(): string
     {
